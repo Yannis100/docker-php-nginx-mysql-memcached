@@ -2,6 +2,8 @@ FROM php:7.1-fpm
 
 COPY php.ini /usr/local/etc/php/conf.d/php.ini
 
+COPY index.php /var/www/html
+
 RUN apt-get update \
   && docker-php-ext-install pdo_mysql mysqli mbstring
 

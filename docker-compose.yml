@@ -1,14 +1,9 @@
-version: '2'
+version: '3'
 services:
   memcached:
     image: memcached:1.5-alpine
     ports:
       - "11212:11211"
-
-  data:
-    image: busybox
-    volumes:
-      - ./misc/data:/var/lib/mysql
 
   mysql:
     image: mysql:5.7
@@ -19,19 +14,17 @@ services:
       MYSQL_PASSWORD: mysql_pw
     ports:
       - "13306:3306"
-    volumes_from:
-      - data
     volumes:
-      - ../application/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+      - ./application/initial.sql:/docker-entrypoint-initdb.d/initial.sql
     container_name: mysql
 
   nginx:
-    build: ./nginx
+    build: ./docker/nginx
     ports:
       - "80:80"
       - "443:443"
     volumes:
-      - ../:/var/www/html
+      - ./public:/var/www/html
     links:
       - web
     container_name: nginx
@@ -39,10 +32,10 @@ services:
   web:
     #    build: ./php-fpm73   # <- if you want to use PHP7.3
     #    build: ./php-fpm72   # <- if you want to use PHP7.2
-    build: ./php-fpm71
+    build: ./docker/php-fpm71
     #    build: ./php-fpm56    # <- if you want to use PHP5.6
     volumes:
-      - ../:/var/www/html
+      - ./public:/var/www/html
     links:
       - mysql
     environment:
