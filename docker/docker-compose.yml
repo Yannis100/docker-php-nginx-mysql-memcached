@@ -1,7 +1,7 @@
 version: '2'
 services:
   memcached:
-    image: memcached:1.4
+    image: memcached:1.5-alpine
     ports:
       - "11212:11211"
 
