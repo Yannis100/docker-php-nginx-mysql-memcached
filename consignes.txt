@@ -1,0 +1,7 @@
+Présentation de 20 minutes suivie de 5 minutes de questions-réponses.
+Discussion des avantages/inconvénients, coûts, dépendances, si possible comparaison avec autres solutions.
+Discussion technique, mais aussi stratégique (prendre aussi la perspective d'un chef d'entreprise).
+La présentation doit inclure une démonstration live du logiciel/service. Rendu du PDF de la présentation.
+
+* Document destiné à un administrateur système qui contient de manière synthétique les points essentiels qu'il doit savoir.
+Une sorte de cheat sheet avec vue d'ensemble, comment installer, comment configurer, comment utiliser, .... Ne pas répéter le contenu des slides. Rendu du PDF du document.

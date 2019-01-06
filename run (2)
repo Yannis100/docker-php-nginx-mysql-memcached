@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#docker pull memcached
+
+
+docker kill ait_memcached
+docker rm ait_memcached
+
+
+docker run -ti --name ait_memcached --hostname ait_memcached -d memcached
+
+docker run --link my-memcache:memcache -d my-app-image
