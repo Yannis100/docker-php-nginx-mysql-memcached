@@ -2,6 +2,8 @@
     # Connect to memcache:
     global $memc;
     $memc = new Memcached();
+	
+	$memc->addServer('memcached', 11211);
 
     # Gets key / value pair into memcache ... called by mysql_query_cache()
     function getCache($key) {
